@@ -15,6 +15,7 @@ MD = (50,30)
 # 过滤尺寸 要开设置
 PCSIZE = (1920,1080)
 MOBILESIZE = (1080,1920)
+FILTERTYPE = ('pc','mobile')
 class ProcessImage():
     def __init__(self,flush: bool,filter: bool) -> None:
         if not os.path.exists('./jpeg'):
@@ -53,11 +54,12 @@ class ProcessImage():
         platform = "mobile" if width < height else "pc"
 
         if self.filter:
-            filterwidth , filterheight = PCSIZE if platform == "pc" else MOBILESIZE
-            if width <= filterwidth or height <= filterheight:
-                source.close()
-                image.close()
-                return 2
+            if platform in FILTERTYPE:
+                filterwidth , filterheight = PCSIZE if platform == "pc" else MOBILESIZE
+                if width <= filterwidth or height <= filterheight:
+                    source.close()
+                    image.close()
+                    return 2
             
         for format in FORMAT:
             _image = image.copy()
