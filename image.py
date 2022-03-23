@@ -2,7 +2,7 @@
 # @Author: bymoye
 # @Date:   2021-06-02 12:13:43
 # @Last Modified by:   bymoye
-# @Last Modified time: 2022-03-20 19:36:45
+# @Last Modified time: 2022-03-24 01:17:31
 import os,ujson
 from PIL import Image
 from concurrent import futures
@@ -54,7 +54,7 @@ class ProcessImage():
 
         if self.filter:
             filterwidth , filterheight = PCSIZE if platform == "pc" else MOBILESIZE
-            if width <= filterwidth or height <= filterheight:
+            if width < filterwidth or height < filterheight:
                 source.close()
                 image.close()
                 return 2
