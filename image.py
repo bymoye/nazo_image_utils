@@ -2,7 +2,7 @@
 # @Author: bymoye
 # @Date:   2021-06-02 12:13:43
 # @Last Modified by:   bymoye
-# @Last Modified time: 2022-03-24 01:17:31
+# @Last Modified time: 2022-03-24 01:19:23
 import os,ujson
 from PIL import Image
 from concurrent import futures
@@ -15,6 +15,7 @@ MD = (50,30)
 # 过滤尺寸 要开设置
 PCSIZE = (1920,1080)
 MOBILESIZE = (1080,1920)
+FILTERTYPE = ('pc','mobile')
 class ProcessImage():
     def __init__(self,flush: bool,filter: bool) -> None:
         if not os.path.exists('./jpeg'):
