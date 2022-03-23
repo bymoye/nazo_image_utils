@@ -2,7 +2,7 @@
 # @Author: bymoye
 # @Date:   2021-06-02 12:13:43
 # @Last Modified by:   bymoye
-# @Last Modified time: 2022-03-24 01:19:23
+# @Last Modified time: 2022-03-24 01:21:14
 import os,ujson
 from PIL import Image
 from concurrent import futures
@@ -106,15 +106,15 @@ class ProcessImage():
                 if imgprocess == 0:
                     self.status['Falseid'] += 1
                     self.errorfiles.append(filename)
-                    print(f"出现错误文件:{filename}")
+                    print(f"\n出现错误文件:{filename}")
                 elif imgprocess == 1:
                     self.status['Repeatid'] += 1
                     self.repeatfiles.append(filename)
-                    print(f"{filename} 已存在")
+                    print(f"\n{filename} 已存在")
                 elif imgprocess == 2:
                     self.status['Failedid'] += 1
                     self.failedfiles.append(filename)
-                    print(f"{filename} 尺寸不达标")
+                    print(f"\n{filename} 尺寸不达标")
                 else:
                     self.status['Trueid'] += 1
                     if imgprocess.get('pc'):
@@ -151,5 +151,5 @@ if __name__ == '__main__':
     # 如果 flush 为True 将会清空原有的manifest.json文件
     # 如果 flush 为False 将会追加新的manifest.json文件
     # 如果filter 为True 将会过滤掉不合格的图片
-    temp = ProcessImage(flush=False,filter=False)
+    temp = ProcessImage(flush=False,filter=True)
     temp.try_process()
