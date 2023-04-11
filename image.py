@@ -137,9 +137,11 @@ class ProcessImage:
             for filename in file_names:
                 results.append(pool.apply_async(self.process_image, args=(filename,)))
             processed_files = 0
-            for r in tqdm(results, total=files_len, desc="Processing images"):
+            t = tqdm(results, total=files_len, desc="Processing images")
+            for r in t:
                 img_process = r.get()
                 filename = file_names[processed_files]
+                t.set_description(f"Processing images: {filename}")
                 processed_files += 1
                 if isinstance(img_process, int):
                     if img_process == 0:
@@ -157,11 +159,6 @@ class ProcessImage:
                         self.pc.update(img_process[PC])
                     elif MOBILE in img_process:
                         self.mobile.update(img_process[MOBILE])
-                print(
-                    f"\rProcessing images: {filename} ({processed_files}/{files_len})",
-                    end="",
-                    flush=True,
-                )
 
         with open("manifest.json", "w+") as json_file:
             ujson.dump(self.pc, json_file)
