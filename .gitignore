@@ -3,7 +3,8 @@ jpeg
 webp
 manifest_mobile.json
 manifest.json
-Untitled-1.py
-test.php
+*.cpp
+*.so
 __pycache__
-test2.py
+build
+.vscode

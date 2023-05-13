@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools", "wheel","cython", "Pillow", "ujson", "tqdm","webp-support", "nazo-rand"]
+build-backend = "setuptools.build_meta"
+
+[tool.build-system]
+requires = ["setuptools", "wheel","cython", "Pillow", "ujson", "tqdm","webp-support", "nazo-rand"]
+build-backend = "setuptools.build_meta"
+
+
+[metadata]
+name = "nazo_image_utils"
+version = "0.0.1"
+author = "bymoye"
+author_email = "s3moye@gmail.com"
+readme = "README.md"
+description = "A tool for generating random images"
+url = "https://github.com/bymoye/nazo_image_utils"
+
+[options]
+python_requires = ">=3.8"

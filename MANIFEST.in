@@ -1,0 +1,3 @@
+include nazo_image_utils/rand_image.pyi
+include nazo_image_utils/rand_image.pyx
+include nazo_image_utils/process_image.py
