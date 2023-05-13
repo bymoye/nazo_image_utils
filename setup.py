@@ -3,6 +3,12 @@ from Cython.Build import cythonize
 from Cython.Compiler import Options
 from sys import platform
 
+
+def readme():
+    with open("README.md") as f:
+        return f.read()
+
+
 extra_compile_args = []
 extra_link_args = []
 
@@ -38,6 +44,8 @@ setup(
     author_email="s3moye@gmail.com",
     version="0.0.1",
     description="A tool for generating random images",
+    long_description=readme(),
+    long_description_content_type="text/markdown",
     license="MIT",
     package_data={
         "": [
