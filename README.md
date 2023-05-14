@@ -65,7 +65,7 @@ RandImage 是一个用于生成随机图像 URL 的类。
 ```python
 from nazo_image_utils import RandImage
 
-rand_image = RandImage(pc_json_path="./manifest.json", mobile_json_path="./manifest_mobile.json", domain=b"https://example.com")
+rand_image = RandImage(pc_json_path="./manifest.json", mobile_json_path="./manifest_mobile.json", domain="https://example.com")
 ```
 
 初始化 RandImage 类的实例。
