@@ -1,7 +1,7 @@
 from typing import Optional, Union
 
 class RandImage:
-    def __init__(self, pc_json_path: str, mobile_json_path: str, domain: bytes) -> None:
+    def __init__(self, pc_json_path: str, mobile_json_path: str, domain: str) -> None:
         """初始化
 
         Args:

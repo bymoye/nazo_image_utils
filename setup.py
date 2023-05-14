@@ -34,7 +34,6 @@ setup(
             "binding": True,
         },
     ),
-    license="MIT",
     package_data={
         "": [
             "nazo_image_utils/rand_image.pyi",

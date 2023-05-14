@@ -5,6 +5,7 @@ from webp_support.webp_support cimport webp_supported
 from nazo_rand.nazo_rand cimport cy_random_below
 from libc.string cimport strcmp
 from libc.string cimport strcpy
+from libc.string cimport strdup
 from libc.stdlib cimport malloc, free
 from libc.stdio cimport snprintf
 from cpython.bytes cimport PyBytes_FromString
@@ -87,7 +88,7 @@ cdef class RandImage:
 
         return py_urls
 
-    def __cinit__(self, str pc_json_file, str mobile_json_file, bytes domain):
+    def __cinit__(self, str pc_json_file, str mobile_json_file, str domain):
         cdef str key
         cdef int i
         cdef bytes encoded_key
@@ -108,7 +109,7 @@ cdef class RandImage:
                         encoded_key = key.encode('UTF-8')
                         self.imgmb[i] = <char*>malloc(len(encoded_key) + 1)  # +1 用于空终止字符
                         strcpy(self.imgmb[i], encoded_key)
-        self.domain = domain
+        self.domain = strdup(domain.encode('utf-8'))
 
     def __dealloc__(self):
         cdef int i
@@ -123,3 +124,6 @@ cdef class RandImage:
                 if self.imgmb[i] is not NULL:
                     free(self.imgmb[i])
             free(self.imgmb)
+        
+        if self.domain is not NULL:
+            free(self.domain)
