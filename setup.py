@@ -4,11 +4,6 @@ from Cython.Compiler import Options
 from sys import platform
 
 
-def readme():
-    with open("README.md") as f:
-        return f.read()
-
-
 extra_compile_args = []
 extra_link_args = []
 
@@ -24,7 +19,6 @@ elif platform == "darwin":  # macOS
 Options.cimport_from_pyx = False
 
 setup(
-    name="nazo_image_utils",
     ext_modules=cythonize(
         Extension(
             "",
@@ -40,12 +34,6 @@ setup(
             "binding": True,
         },
     ),
-    author="bymoye",
-    author_email="s3moye@gmail.com",
-    version="0.0.1",
-    description="A tool for generating random images",
-    long_description=readme(),
-    long_description_content_type="text/markdown",
     license="MIT",
     package_data={
         "": [
@@ -55,18 +43,4 @@ setup(
         ]
     },
     include_package_data=True,
-    classifiers=[
-        "Development Status :: 5 - Production/Stable",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Programming Language :: Cython",
-        "Operating System :: POSIX :: Linux",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Microsoft :: Windows",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-    ],
-    python_requires=">=3.8",
-    packages=["nazo_image_utils"],
 )

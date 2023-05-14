@@ -16,5 +16,39 @@ readme = "README.md"
 description = "A tool for generating random images"
 url = "https://github.com/bymoye/nazo_image_utils"
 
-[options]
-python_requires = ">=3.8"
+
+[project]
+name="nazo_image_utils"
+version = "0.0.2"
+authors = [
+    { name = "bymoye", email = "s3moye@gmail.com" },
+]
+description="A tool for generating random images"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Cython",
+        "Operating System :: POSIX :: Linux",
+        "Operating System :: MacOS :: MacOS X",
+        "Operating System :: Microsoft :: Windows",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+    ]
+dependencies = [
+    "Pillow",
+    "ujson",
+    "tqdm",
+    "webp-support",
+    "nazo-rand",
+]
+
+[tool.setuptools]
+packages = ["nazo_image_utils"]
+
+[project.urls]
+"Homepage" = "https://github.com/bymoye/nazo_image_utils"
+"Bug Tracker" = "https://github.com/bymoye/nazo_image_utils/issues"
