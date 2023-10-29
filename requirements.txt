@@ -1,5 +1,7 @@
-Pillow==9.5.0
-ujson==5.7.0
-tqdm==4.65.0
-webp-support==0.2.7
-nazo-rand==0.0.9
+Pillow==10.1.0
+ujson==5.8.0
+tqdm==4.66.1
+webp-support==0.2.8
+nazo-rand==0.1.0
+Cython==3.0.4
+setuptools

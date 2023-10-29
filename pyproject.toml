@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [metadata]
 name = "nazo_image_utils"
-version = "0.0.3"
+version = "0.0.4"
 author = "bymoye"
 author_email = "s3moye@gmail.com"
 readme = "README.md"
@@ -19,7 +19,7 @@ url = "https://github.com/bymoye/nazo_image_utils"
 
 [project]
 name="nazo_image_utils"
-version = "0.0.3"
+version = "0.0.4"
 authors = [
     { name = "bymoye", email = "s3moye@gmail.com" },
 ]
@@ -32,6 +32,7 @@ classifiers=[
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Programming Language :: Cython",
         "Operating System :: POSIX :: Linux",
         "Operating System :: MacOS :: MacOS X",
