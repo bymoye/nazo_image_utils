@@ -39,7 +39,7 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v3.0.1
         env:
-          CIBW_BUILD: cp39-* cp310-* cp311-* cp312-* cp313-* cp314-* pp39-* pp310-* pp311-*
+          CIBW_BUILD: cp39-* cp310-* cp311-* cp312-* cp313-* cp314-*
           CIBW_ENABLE: all
           CIBW_ARCHS: "auto64"
 
