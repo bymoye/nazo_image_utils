@@ -23,7 +23,7 @@ class RandImage:
         """处理程序
 
         Args:
-            ua (bytes): 用户浏览器 user-agent 标识, 用于检查Webp支持。
+            ua (bytes): 用户浏览器 user-agent 标识, 用于检查AVIF和WebP支持。
 
             number (int): 请求的图像URL数量, 范围为1-10。
 
@@ -34,8 +34,9 @@ class RandImage:
             size (bytes): 尺寸 (仅决定返回的图片尺寸格式)
 
         Returns:
-            bytes | list[str]: 返回图像URL列表或JSON字符串 \n 最终格式为: `[domain]/[webp|jpeg]/[md5].{size}.[webp|jpeg]`
-            例如: `https://nazo.run/webp/0a4d55a8d778e5022fab701977c5d840.source.webp`
+            bytes | list[str]: 返回图像URL列表或JSON字符串 \n 最终格式为: `[domain]/[avif|webp|jpeg]/[md5].{size}.[avif|webp|jpeg]`
+            例如: `https://nazo.run/avif/0a4d55a8d778e5022fab701977c5d840.source.avif`
+            格式优先级: AVIF > WebP > JPEG
         """
 
         ...

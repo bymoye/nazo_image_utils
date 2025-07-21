@@ -1,54 +1,57 @@
 [build-system]
-requires = ["setuptools", "wheel","cython", "Pillow", "ujson", "tqdm","webp-support", "nazo-rand"]
-build-backend = "setuptools.build_meta"
-
-[tool.build-system]
-requires = ["setuptools", "wheel","cython", "Pillow", "ujson", "tqdm","webp-support", "nazo-rand"]
-build-backend = "setuptools.build_meta"
-
-
-[metadata]
-name = "nazo_image_utils"
-version = "0.0.5"
-author = "bymoye"
-author_email = "s3moye@gmail.com"
-readme = "README.md"
-description = "A tool for generating random images"
-url = "https://github.com/bymoye/nazo_image_utils"
-
-
-[project]
-name="nazo_image_utils"
-version = "0.0.5"
-authors = [
-    { name = "bymoye", email = "s3moye@gmail.com" },
-]
-description="A tool for generating random images"
-readme = "README.md"
-requires-python = ">=3.8"
-classifiers=[
-        "Development Status :: 5 - Production/Stable",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Programming Language :: Python :: 3.12",
-        "Programming Language :: Python :: 3.13",
-        "Programming Language :: Cython",
-        "Operating System :: POSIX :: Linux",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Microsoft :: Windows",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-    ]
-dependencies = [
+requires = [
+    "setuptools==80.9.0",
+    "wheel==0.45.1",
+    "cython==3.1.2",
     "Pillow",
     "ujson",
     "tqdm",
-    "webp-support",
+    "modern-image-support",
     "nazo-rand",
 ]
-license = { file = "LICENSE" }
+build-backend = "setuptools.build_meta"
+[project]
+name = "nazo_image_utils"
+version = "0.1.0"
+authors = [{ name = "bymoye", email = "s3moye@gmail.com" }]
+description = "A tool for generating random images"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Cython",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["Pillow", "ujson", "tqdm", "modern-image-support", "nazo-rand"]
+
 
 [project.urls]
-"Homepage" = "https://github.com/bymoye/nazo_image_utils"
+Homepage = "https://github.com/bymoye/nazo_image_utils"
+Repository = "https://github.com/bymoye/nazo_image_utils"
 "Bug Tracker" = "https://github.com/bymoye/nazo_image_utils/issues"
+
+
+[project.optional-dependencies]
+dev = [
+    "setuptools==80.9.0",
+    "wheel==0.45.1",
+    "Cython==3.1.2",
+    "build>=1.0.0",
+    "cibuildwheel>=3.0.1",
+    "Pillow",
+    "ujson",
+    "tqdm",
+    "modern-image-support",
+    "nazo-rand",
+]
+test = ["pytest>=8.4.1"]

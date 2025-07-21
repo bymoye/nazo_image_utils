@@ -1,7 +1,7 @@
 # cython: language_level=3
 # distutils: language = c++
 import json
-from webp_support.webp_support cimport webp_supported
+from modern_image_support.modern_image_support import webp_supported, avif_supported
 from nazo_rand.nazo_rand cimport cy_random_below
 from libc.string cimport strcmp
 from libc.string cimport strcpy
@@ -11,6 +11,7 @@ from libc.stdio cimport snprintf
 from cpython.bytes cimport PyBytes_FromString
 
 cdef:
+    const char* URLAVIF = b'avif'
     const char* URLWEBP = b'webp'
     const char* URLJPEG = b'jpeg'
     const char* MOBILE = b"mobile"
@@ -62,13 +63,19 @@ cdef class RandImage:
         根据给定的参数生成图像URL。
 
         参数:
-        ua: bytes - 用户代理, 用于检查WebP支持。
+        ua: bytes - 用户代理, 用于检查AVIF和WebP支持。
         n: int - 请求的图像URL数量, 范围为1-10。
         platform: bytes - 生成特定平台图像URL, 可选值为"mobile"和"pc".
         encode: bytes - 返回的URL编码方式, 可选值为"json".
         """
         cdef const char* img_format
-        img_format = URLWEBP if webp_supported(ua) else URLJPEG
+        # 按优先级选择图像格式: AVIF > WebP > JPEG
+        if avif_supported(ua):
+            img_format = URLAVIF
+        elif webp_supported(ua):
+            img_format = URLWEBP
+        else:
+            img_format = URLJPEG
         cdef int i
         if encode == b"json":
             number = min(max(number, 1), 10)
