@@ -11,6 +11,7 @@ build
 .vscode
 venv
 dist/
+wheelhouse/
 *.egg-info/
 .pytest_cache/
 .coverage

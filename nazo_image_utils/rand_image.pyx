@@ -23,10 +23,10 @@ cdef class RandImage:
         char** imgmb
         char* domain
 
-    cdef inline char* pc(self) nogil:
+    cdef inline char* pc(self) noexcept nogil:
         return self.imgpc[cy_random_below(self.imgpc_total)]
 
-    cdef inline char* mobile(self) nogil:
+    cdef inline char* mobile(self) noexcept nogil:
         return self.imgmb[cy_random_below(self.imgmb_total)]
 
     cdef char** generate_img_urls(self, int number,const char* img_format, const char* method, const char* size) nogil:

@@ -55,3 +55,11 @@ dev = [
     "nazo-rand",
 ]
 test = ["pytest>=8.4.1"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nazo_image_utils*"]
+exclude = ["wheelhouse*", "venv*", "build*", "dist*"]
+
+[tool.setuptools.package-data]
+nazo_image_utils = ["*.pyi", "*.pyx"]

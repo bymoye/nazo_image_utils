@@ -1,3 +1,10 @@
 include nazo_image_utils/rand_image.pyi
 include nazo_image_utils/rand_image.pyx
 include nazo_image_utils/process_image.py
+include nazo_image_utils/__init__.py
+include LICENSE
+include README.md
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .git*
+global-exclude wheelhouse/*

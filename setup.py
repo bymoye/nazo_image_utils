@@ -1,4 +1,4 @@
-from setuptools import setup, Extension
+from setuptools import setup, Extension, find_packages
 from Cython.Build import cythonize
 from Cython.Compiler import Options
 from sys import platform
@@ -19,9 +19,10 @@ elif platform == "darwin":  # macOS
 Options.cimport_from_pyx = False
 
 setup(
+    packages=find_packages(exclude=["wheelhouse", "venv", "build", "dist"]),
     ext_modules=cythonize(
         Extension(
-            "",
+            "nazo_image_utils.rand_image",
             sources=["./nazo_image_utils/rand_image.pyx"],
             language="c++",
             extra_compile_args=extra_compile_args,
@@ -35,10 +36,11 @@ setup(
         },
     ),
     package_data={
-        "": [
-            "nazo_image_utils/rand_image.pyi",
-            "nazo_image_utils/rand_image.pyx",
-            "nazo_image_utils/process_image.py",
+        "nazo_image_utils": [
+            "rand_image.pyi",
+            "rand_image.pyx",
+            "process_image.py",
+            "__init__.py",
         ]
     },
     include_package_data=True,
